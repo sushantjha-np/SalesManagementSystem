@@ -5,13 +5,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>SALES MANAGEMENT SYSTEM | Powered by SANKHA - A Technology Company</title>
+  <title>SALES MANAGEMENT SYSTEM | SANKHA</title>
   <meta name="description" content="Sales Management System for live delivery dispatch, jar tracking, cash collection, and driver operations. Powered by SANKHA - A Technology Company.">
   <meta name="keywords" content="Sales Management System, SANKHA, Water Jar Management, Dispatch Tracker, Driver Ledger, ERP System">
   <meta name="author" content="SANKHA - A Technology Company">
   <meta name="robots" content="index, follow">
   
-  <!-- Open Graph / Facebook / WhatsApp -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="SALES MANAGEMENT SYSTEM - SANKHA">
   <meta property="og:description" content="Real-time Sales & Water Jar Dispatch Management System. Powered by SANKHA.">
@@ -30,7 +30,7 @@
     :root {
       --saffron: #FF7700;
       --saffron-light: #FF9933;
-      --saffron-bg: #FFF5EB;
+      --saffron-bg: #FFF3E0;
       --red-primary: #D32F2F;
       --red-dark: #B71C1C;
       --red-deep: #850000;
@@ -39,7 +39,7 @@
       --surface-border: #FCE4D6;
       --text-main: #2A1810;
       --text-muted: #7A6258;
-      --shadow-sm: 0 2px 6px rgba(183, 28, 28, 0.08);
+      --shadow-sm: 0 2px 8px rgba(183, 28, 28, 0.08);
       --shadow-md: 0 8px 24px rgba(211, 47, 47, 0.12);
       --radius-lg: 16px;
       --radius-md: 12px;
@@ -60,11 +60,10 @@
       flex-direction: column;
     }
 
-    /* Top Navigation Header */
     header {
       background: linear-gradient(135deg, var(--red-dark) 0%, var(--red-primary) 50%, var(--saffron) 100%);
       color: #FFFFFF;
-      padding: 1.25rem 1.5rem;
+      padding: 1.1rem 1.5rem;
       box-shadow: 0 4px 20px rgba(183, 28, 28, 0.25);
       position: sticky;
       top: 0;
@@ -82,7 +81,7 @@
     }
 
     .brand-title {
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       font-weight: 800;
       letter-spacing: 0.5px;
       text-transform: uppercase;
@@ -103,7 +102,6 @@
       font-size: 0.8rem;
       font-weight: 600;
       color: #FFE0B2;
-      letter-spacing: 0.3px;
       margin-top: 2px;
     }
 
@@ -120,7 +118,6 @@
       gap: 0.5rem;
     }
 
-    /* Main Container */
     main {
       flex: 1;
       max-width: 1100px;
@@ -132,7 +129,6 @@
       gap: 1.5rem;
     }
 
-    /* Top Dashboard Cards */
     .dashboard-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -142,7 +138,7 @@
     .metric-card {
       background: var(--surface);
       border-radius: var(--radius-lg);
-      padding: 1.25rem 1.25rem;
+      padding: 1.25rem;
       box-shadow: var(--shadow-sm);
       border: 1.5px solid var(--surface-border);
       position: relative;
@@ -150,12 +146,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .metric-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
+      transition: transform 0.2s ease;
     }
 
     .metric-card::before {
@@ -175,7 +166,6 @@
       text-transform: uppercase;
       font-weight: 700;
       color: var(--text-muted);
-      letter-spacing: 0.4px;
     }
 
     .metric-tag {
@@ -211,7 +201,6 @@
       color: var(--text-muted);
     }
 
-    /* Section Cards */
     .card {
       background: var(--surface);
       border-radius: var(--radius-lg);
@@ -238,7 +227,6 @@
       gap: 0.5rem;
     }
 
-    /* Form Fields */
     .form-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -268,7 +256,6 @@
       color: var(--text-main);
       background-color: #FFFFFF;
       outline: none;
-      transition: all 0.2s ease;
     }
 
     input:focus, select:focus, textarea:focus {
@@ -276,7 +263,6 @@
       box-shadow: 0 0 0 3px rgba(255, 119, 0, 0.15);
     }
 
-    /* Buttons */
     .btn {
       padding: 0.85rem 1.5rem;
       border-radius: var(--radius-md);
@@ -299,7 +285,6 @@
 
     .btn-primary:hover {
       background: linear-gradient(135deg, var(--red-dark) 0%, var(--saffron-light) 100%);
-      transform: translateY(-1px);
     }
 
     .btn-outline {
@@ -308,7 +293,6 @@
       color: var(--red-primary);
     }
 
-    /* Table styling */
     .table-container {
       overflow-x: auto;
       border-radius: var(--radius-md);
@@ -337,10 +321,6 @@
       white-space: nowrap;
     }
 
-    tr:last-child td {
-      border-bottom: none;
-    }
-
     .status-badge {
       padding: 3px 8px;
       border-radius: 12px;
@@ -359,11 +339,10 @@
       color: var(--red-primary);
     }
 
-    /* Modal Login Dialog */
     .modal-overlay {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(42, 24, 16, 0.7);
+      background: rgba(42, 24, 16, 0.75);
       backdrop-filter: blur(5px);
       display: flex;
       align-items: center;
@@ -382,7 +361,6 @@
       border-top: 6px solid var(--red-primary);
     }
 
-    /* Footer */
     footer {
       background: #2A1810;
       color: #D1C4BE;
@@ -412,27 +390,27 @@
       <div style="text-align:center; margin-bottom:1.25rem;">
         <img src="https://raw.githubusercontent.com/sushantjha-np/SANKHA/refs/heads/main/Sankha-fav.png" width="48" height="48" alt="Sankha Logo">
         <h2 style="color:var(--red-dark); font-weight:800; margin-top:0.5rem; font-size:1.25rem;">🔐 Driver Authentication</h2>
-        <p style="color:var(--text-muted); font-size:0.82rem; margin-top:4px;">Enter your assigned driver name & PIN to unlock your shift ledger.</p>
+        <p style="color:var(--text-muted); font-size:0.82rem; margin-top:4px;">Select your driver profile and enter your PIN code.</p>
       </div>
 
       <div class="form-group" style="margin-bottom: 1rem;">
         <label for="loginDriverSelect">Select Driver</label>
         <select id="loginDriverSelect">
-          <option value="">-- Choose Driver --</option>
+          <option value="">Loading drivers...</option>
         </select>
       </div>
 
       <div class="form-group" style="margin-bottom: 1.25rem;">
         <label for="loginPinInput">Driver PIN Code</label>
-        <input type="password" id="loginPinInput" placeholder="Enter secure PIN" maxlength="10">
+        <input type="password" id="loginPinInput" placeholder="Enter PIN (e.g. 1986)" maxlength="10">
       </div>
 
-      <button class="btn btn-primary" style="width:100%;" onclick="doDriverLogin()">Access Shift Dashboard</button>
-      <div id="loginError" style="color:var(--red-primary); font-size:0.8rem; font-weight:700; margin-top:0.75rem; text-align:center;"></div>
+      <button id="btnLogin" class="btn btn-primary" style="width:100%;" onclick="doDriverLogin()">Access Dashboard</button>
+      <div id="loginError" style="color:var(--red-primary); font-size:0.85rem; font-weight:700; margin-top:0.75rem; text-align:center;"></div>
     </div>
   </div>
 
-  <!-- Top Header Navigation -->
+  <!-- Header -->
   <header>
     <div class="header-container">
       <div>
@@ -459,7 +437,7 @@
       <div class="metric-card card-red">
         <div>
           <div class="metric-title">Pending Cash</div>
-          <span class="metric-tag tag-alltime">All-Time Outstanding</span>
+          <span class="metric-tag tag-alltime">All-Time</span>
         </div>
         <div>
           <div class="metric-value" style="color:var(--red-primary);" id="valPendingCash">NPR 0.00</div>
@@ -471,23 +449,23 @@
       <div class="metric-card card-red">
         <div>
           <div class="metric-title">Pending Jars</div>
-          <span class="metric-tag tag-alltime">All-Time With Customers</span>
+          <span class="metric-tag tag-alltime">All-Time</span>
         </div>
         <div>
           <div class="metric-value" style="color:var(--red-dark);" id="valPendingJars">0</div>
-          <div class="metric-sub">Unreturned empty jars to be collected</div>
+          <div class="metric-sub">Empty jars pending customer return</div>
         </div>
       </div>
 
       <!-- 3. Total Cash (Current Day Only) -->
       <div class="metric-card card-saffron">
         <div>
-          <div class="metric-title">Total Cash Collected</div>
+          <div class="metric-title">Total Cash</div>
           <span class="metric-tag tag-today">Today (Single Day)</span>
         </div>
         <div>
           <div class="metric-value" style="color:var(--saffron);" id="valTotalCashToday">NPR 0.00</div>
-          <div class="metric-sub">Today's collected cash in hand</div>
+          <div class="metric-sub">Cash collected today by driver</div>
         </div>
       </div>
 
@@ -499,16 +477,16 @@
         </div>
         <div>
           <div class="metric-value" style="color:#D84315;" id="valTotalDeliveredToday">0</div>
-          <div class="metric-sub">Jars supplied today by this driver</div>
+          <div class="metric-sub">Jars supplied today by driver</div>
         </div>
       </div>
     </section>
 
-    <!-- Dispatch / Delivery Entry Form -->
+    <!-- Dispatch / Delivery Entry -->
     <section class="card">
       <div class="card-header">
         <h3 class="card-title">🚚 Dispatch / Delivery Entry</h3>
-        <span style="font-size:0.75rem; color:var(--text-muted); font-weight:600;">Syncs in real-time to Google Sheets</span>
+        <span style="font-size:0.75rem; color:var(--text-muted); font-weight:600;">Direct Sheets Sync</span>
       </div>
 
       <form id="deliveryForm" onsubmit="event.preventDefault(); submitDelivery();">
@@ -541,7 +519,7 @@
           </div>
 
           <div class="form-group">
-            <label for="delExpected">Total Expected (NPR)</label>
+            <label for="delExpected">Expected Amount (NPR)</label>
             <input type="number" id="delExpected" readonly style="background:#FFF8F3; font-weight:700;">
           </div>
 
@@ -554,8 +532,8 @@
             <label for="delPayMethod">Payment Method</label>
             <select id="delPayMethod">
               <option value="Cash">Cash</option>
-              <option value="Fonepay/QR">Fonepay/QR</option>
-              <option value="Credit">Credit / Due</option>
+              <option value="Fonepay / QR">Fonepay / QR</option>
+              <option value="Credit / Due">Credit / Due</option>
             </select>
           </div>
         </div>
@@ -568,7 +546,7 @@
       </form>
     </section>
 
-    <!-- Today's Shift Entries Table (Driver Only) -->
+    <!-- Today's Shift Entries Table -->
     <section class="card">
       <div class="card-header">
         <h3 class="card-title">📋 Today's Deliveries Log</h3>
@@ -597,7 +575,7 @@
       </div>
     </section>
 
-    <!-- Register New Customer Modal/Accordion -->
+    <!-- Register New Customer -->
     <section class="card">
       <div class="card-header">
         <h3 class="card-title">👤 Register Customer to Directory</h3>
@@ -640,7 +618,6 @@
     </div>
   </footer>
 
-  <!-- Frontend Logic -->
   <script>
     let appData = {
       drivers: [],
@@ -652,24 +629,28 @@
     window.onload = function() {
       google.script.run
         .withSuccessHandler(populateInitialData)
-        .withFailureHandler(err => alert("Failed to fetch initial sheet data: " + err.message))
+        .withFailureHandler(function(err) {
+          document.getElementById('loginError').textContent = "Failed to load: " + err.message;
+        })
         .getInitialData();
     };
 
     function populateInitialData(data) {
       appData = data;
       
-      // Populate Driver dropdown in Login Modal
       const drvSelect = document.getElementById('loginDriverSelect');
       drvSelect.innerHTML = '<option value="">-- Choose Driver --</option>';
-      data.drivers.forEach(d => {
-        const opt = document.createElement('option');
-        opt.value = d.name;
-        opt.textContent = d.name;
-        drvSelect.appendChild(opt);
-      });
+      if (data.drivers && data.drivers.length > 0) {
+        data.drivers.forEach(d => {
+          const opt = document.createElement('option');
+          opt.value = d.name;
+          opt.textContent = d.name;
+          drvSelect.appendChild(opt);
+        });
+      } else {
+        drvSelect.innerHTML = '<option value="">No drivers found in Settings</option>';
+      }
 
-      // Populate Customer dropdown
       const custSelect = document.getElementById('delCustomer');
       custSelect.innerHTML = '<option value="">-- Select Customer --</option>';
       data.customers.forEach(c => {
@@ -681,7 +662,6 @@
         custSelect.appendChild(opt);
       });
 
-      // Populate Area in Customer form
       const areaSelect = document.getElementById('custAreaSelect');
       areaSelect.innerHTML = '<option value="">-- Choose Area --</option>';
       data.areas.forEach(a => {
@@ -698,6 +678,7 @@
       const driver = document.getElementById('loginDriverSelect').value;
       const pin = document.getElementById('loginPinInput').value;
       const errBox = document.getElementById('loginError');
+      const btn = document.getElementById('btnLogin');
       errBox.textContent = '';
 
       if (!driver || !pin) {
@@ -705,8 +686,13 @@
         return;
       }
 
+      btn.disabled = true;
+      btn.textContent = 'Verifying...';
+
       google.script.run
         .withSuccessHandler(function(res) {
+          btn.disabled = false;
+          btn.textContent = 'Access Dashboard';
           if (res.success) {
             appData.currentDriver = res.driverName;
             document.getElementById('loginModal').classList.add('hidden');
@@ -719,7 +705,11 @@
             errBox.textContent = res.message;
           }
         })
-        .withFailureHandler(err => errBox.textContent = err.message)
+        .withFailureHandler(function(err) {
+          btn.disabled = false;
+          btn.textContent = 'Access Dashboard';
+          errBox.textContent = err.message;
+        })
         .authenticateDriver(driver, pin);
     }
 
@@ -732,19 +722,11 @@
     }
 
     function renderDriverStats(stats) {
-      // 1. Pending Cash (All time)
       document.getElementById('valPendingCash').textContent = 'NPR ' + (stats.pendingCashAllTime || 0).toLocaleString(undefined, {minimumFractionDigits: 2});
-      
-      // 2. Pending Jars (All time)
       document.getElementById('valPendingJars').textContent = (stats.pendingJarAllTime || 0);
-      
-      // 3. Total Cash (Current Day Only)
       document.getElementById('valTotalCashToday').textContent = 'NPR ' + (stats.totalCashToday || 0).toLocaleString(undefined, {minimumFractionDigits: 2});
-      
-      // 4. Total Jars Delivered (Current Day Only)
       document.getElementById('valTotalDeliveredToday').textContent = (stats.totalDeliveredToday || 0);
 
-      // Render today's shift table
       const tbody = document.getElementById('entriesTableBody');
       const countLabel = document.getElementById('entriesCount');
       
@@ -836,7 +818,6 @@
         .withSuccessHandler(function(res) {
           alert('Customer registered! Assigned code: ' + res.code);
           document.getElementById('newCustForm').reset();
-          // Reload initial dropdowns
           google.script.run.withSuccessHandler(populateInitialData).getInitialData();
         })
         .withFailureHandler(err => alert("Error: " + err.message))
