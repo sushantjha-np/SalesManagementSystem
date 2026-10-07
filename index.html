@@ -1,328 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Sales Management System — SANKHA</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- SEO Meta Tags -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>SALES MANAGEMENT SYSTEM | Powered by SANKHA - A Technology Company</title>
+  <meta name="description" content="Sales Management System for live delivery dispatch, jar tracking, cash collection, and driver operations. Powered by SANKHA - A Technology Company.">
+  <meta name="keywords" content="Sales Management System, SANKHA, Water Jar Management, Dispatch Tracker, Driver Ledger, ERP System">
+  <meta name="author" content="SANKHA - A Technology Company">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SALES MANAGEMENT SYSTEM - SANKHA">
+  <meta property="og:description" content="Real-time Sales & Water Jar Dispatch Management System. Powered by SANKHA.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/sushantjha-np/SANKHA/refs/heads/main/Sankha-fav.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/sushantjha-np/SANKHA/refs/heads/main/Sankha-fav.png">
+  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/sushantjha-np/SANKHA/refs/heads/main/Sankha-fav.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
     :root {
       --saffron: #FF7700;
-      --saffron-hover: #E06900;
-      --saffron-light: #FFF4EB;
-      --red: #D32F2F;
-      --red-hover: #B71C1C;
-      --red-light: #FEECEB;
-      --dark-slate: #0F172A;
+      --saffron-light: #FF9933;
+      --saffron-bg: #FFF5EB;
+      --red-primary: #D32F2F;
+      --red-dark: #B71C1C;
+      --red-deep: #850000;
+      --red-bg: #FFEBEE;
       --surface: #FFFFFF;
-      --bg: #F8FAFC;
-      --border: #E2E8F0;
-      --text: #1E293B;
-      --text-muted: #64748B;
-      --success: #16A34A;
-      --radius: 12px;
-      --shadow: 0 4px 20px -2px rgba(255, 119, 0, 0.12), 0 2px 6px -1px rgba(0, 0, 0, 0.06);
+      --surface-border: #FCE4D6;
+      --text-main: #2A1810;
+      --text-muted: #7A6258;
+      --shadow-sm: 0 2px 6px rgba(183, 28, 28, 0.08);
+      --shadow-md: 0 8px 24px rgba(211, 47, 47, 0.12);
+      --radius-lg: 16px;
+      --radius-md: 12px;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Plus Jakarta Sans', 'Noto Sans Devanagari', sans-serif;
-      -webkit-tap-highlight-color: transparent;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     body {
-      background: var(--bg);
-      color: var(--text);
+      background-color: #FAF5F0;
+      color: var(--text-main);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
-    /* Top Brand Header */
+    /* Top Navigation Header */
     header {
-      background: #FFFFFF;
-      border-bottom: 3.5px solid var(--saffron);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+      background: linear-gradient(135deg, var(--red-dark) 0%, var(--red-primary) 50%, var(--saffron) 100%);
+      color: #FFFFFF;
+      padding: 1.25rem 1.5rem;
+      box-shadow: 0 4px 20px rgba(183, 28, 28, 0.25);
       position: sticky;
       top: 0;
       z-index: 100;
     }
 
-    .header-wrap {
-      max-width: 1150px;
+    .header-container {
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 12px 20px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 16px;
-    }
-
-    .brand-box {
-      display: flex;
       align-items: center;
-      gap: 14px;
+      flex-wrap: wrap;
+      gap: 0.75rem;
     }
 
-    .brand-logo {
-      height: 48px;
-      width: auto;
-      object-fit: contain;
-    }
-
-    .brand-titles h1 {
-      font-size: 1.15rem;
+    .brand-title {
+      font-size: 1.35rem;
       font-weight: 800;
-      color: var(--saffron);
-      text-transform: uppercase;
       letter-spacing: 0.5px;
-      line-height: 1.2;
-    }
-
-    .brand-titles p {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--red);
-      letter-spacing: 0.8px;
       text-transform: uppercase;
-    }
-
-    .driver-pill {
       display: flex;
       align-items: center;
-      gap: 10px;
-      background: var(--saffron-light);
-      border: 1px solid rgba(255, 119, 0, 0.3);
-      padding: 6px 14px;
-      border-radius: 999px;
+      gap: 0.6rem;
     }
 
-    .driver-pill-text {
+    .brand-title img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      padding: 2px;
+    }
+
+    .brand-subtitle {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #FFE0B2;
+      letter-spacing: 0.3px;
+      margin-top: 2px;
+    }
+
+    .driver-badge {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      padding: 0.45rem 1rem;
+      border-radius: 30px;
       font-size: 0.85rem;
       font-weight: 700;
-      color: var(--dark-slate);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    .btn-logout {
-      background: var(--red);
-      color: white;
-      border: none;
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 5px 12px;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .btn-logout:hover {
-      background: var(--red-hover);
-    }
-
-    /* Main Workspace */
+    /* Main Container */
     main {
       flex: 1;
-      max-width: 1050px;
+      max-width: 1100px;
       width: 100%;
-      margin: 24px auto;
-      padding: 0 16px;
-    }
-
-    /* Login Screen Card */
-    #loginScreen {
-      max-width: 440px;
-      margin: 40px auto;
-    }
-
-    .login-card {
-      background: var(--surface);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      padding: 36px 28px;
-      box-shadow: var(--shadow);
-      text-align: center;
-    }
-
-    .login-badge {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto 16px;
-      background: var(--saffron-light);
-      border: 2px solid var(--saffron);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-    }
-
-    .login-card h2 {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: var(--dark-slate);
-      margin-bottom: 6px;
-    }
-
-    .login-card p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      margin-bottom: 24px;
-    }
-
-    .pin-input {
-      letter-spacing: 12px;
-      font-size: 1.6rem;
-      text-align: center;
-      font-weight: 800;
-    }
-
-    /* App Nav Tabs */
-    .tab-bar {
-      display: flex;
-      background: #E2E8F0;
-      padding: 5px;
-      border-radius: var(--radius);
-      margin-bottom: 22px;
-      gap: 6px;
-    }
-
-    .tab-btn {
-      flex: 1;
-      border: none;
-      background: transparent;
-      padding: 12px 14px;
-      font-size: 0.92rem;
-      font-weight: 700;
-      color: var(--text-muted);
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .tab-btn.active {
-      background: #FFFFFF;
-      color: var(--saffron);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
-    }
-
-    /* Shift KPI Stats */
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      margin-bottom: 22px;
-    }
-
-    .stat-card {
-      background: #FFFFFF;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 16px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      margin: 1.5rem auto;
+      padding: 0 1rem;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 1.5rem;
     }
 
-    .stat-card.saffron-theme { border-left: 4px solid var(--saffron); }
-    .stat-card.red-theme { border-left: 4px solid var(--red); }
-    .stat-card.green-theme { border-left: 4px solid var(--success); }
+    /* Top Dashboard Cards */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1rem;
+    }
 
-    .stat-label {
-      font-size: 0.78rem;
+    .metric-card {
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem 1.25rem;
+      box-shadow: var(--shadow-sm);
+      border: 1.5px solid var(--surface-border);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .metric-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 5px;
+      height: 100%;
+    }
+
+    .card-saffron::before { background: var(--saffron); }
+    .card-red::before { background: var(--red-primary); }
+
+    .metric-title {
+      font-size: 0.82rem;
+      text-transform: uppercase;
       font-weight: 700;
       color: var(--text-muted);
-      text-transform: uppercase;
       letter-spacing: 0.4px;
     }
 
-    .stat-val {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: var(--dark-slate);
+    .metric-tag {
+      font-size: 0.68rem;
+      padding: 2px 7px;
+      border-radius: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-top: 4px;
+      width: fit-content;
     }
 
-    /* Main Cards */
+    .tag-alltime {
+      background: var(--red-bg);
+      color: var(--red-primary);
+    }
+
+    .tag-today {
+      background: var(--saffron-bg);
+      color: var(--saffron);
+    }
+
+    .metric-value {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin: 0.6rem 0 0.2rem;
+    }
+
+    .metric-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Section Cards */
     .card {
       background: var(--surface);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      padding: 28px;
-      margin-bottom: 24px;
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      box-shadow: var(--shadow-sm);
+      border: 1.5px solid var(--surface-border);
+    }
+
+    .card-header {
+      border-bottom: 2px solid var(--saffron-bg);
+      padding-bottom: 0.85rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
     .card-title {
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: var(--dark-slate);
-      margin-bottom: 4px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--red-dark);
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 0.5rem;
     }
 
-    .card-subtitle {
-      font-size: 0.86rem;
-      color: var(--text-muted);
-      margin-bottom: 22px;
-    }
-
-    /* Form Grids */
+    /* Form Fields */
     .form-grid {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 16px;
-    }
-
-    .col-12 { grid-column: span 12; }
-    .col-8  { grid-column: span 8; }
-    .col-6  { grid-column: span 6; }
-    .col-4  { grid-column: span 4; }
-    .col-3  { grid-column: span 3; }
-
-    @media (max-width: 768px) {
-      .col-8, .col-6, .col-4, .col-3 { grid-column: span 12 !important; }
-      .stats-row { grid-template-columns: 1fr; }
-      .card { padding: 20px 16px; }
-      .header-wrap { flex-direction: column; text-align: center; }
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
     }
 
     .form-group {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 0.4rem;
     }
 
     label {
-      font-size: 0.84rem;
+      font-size: 0.8rem;
       font-weight: 700;
-      color: #334155;
-      display: flex;
-      align-items: center;
-      gap: 4px;
+      color: var(--text-main);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
     }
-
-    .req { color: var(--red); }
 
     input, select, textarea {
       width: 100%;
-      padding: 11px 13px;
+      padding: 0.75rem 0.9rem;
+      border: 1.5px solid #F1D4C3;
+      border-radius: var(--radius-md);
       font-size: 0.95rem;
-      border: 1.5px solid var(--border);
-      border-radius: 9px;
-      background: #FFFFFF;
-      color: var(--text);
+      color: var(--text-main);
+      background-color: #FFFFFF;
       outline: none;
-      transition: all 0.2s;
+      transition: all 0.2s ease;
     }
 
     input:focus, select:focus, textarea:focus {
@@ -330,111 +276,43 @@
       box-shadow: 0 0 0 3px rgba(255, 119, 0, 0.15);
     }
 
-    input[readonly] {
-      background: #F8FAFC;
-      border-style: dashed;
-      color: #64748B;
-      font-weight: 600;
-    }
-
-    /* Calculation Highlight Strip */
-    .calc-banner {
-      background: linear-gradient(135deg, var(--saffron-light) 0%, #FFF8F2 100%);
-      border: 1.5px solid rgba(255, 119, 0, 0.25);
-      border-radius: 10px;
-      padding: 16px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 14px;
-      margin-top: 6px;
-    }
-
-    .calc-box {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .calc-tag {
-      font-size: 0.74rem;
+    /* Buttons */
+    .btn {
+      padding: 0.85rem 1.5rem;
+      border-radius: var(--radius-md);
       font-weight: 700;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .calc-number {
-      font-size: 1.25rem;
-      font-weight: 800;
-      color: var(--saffron);
-    }
-
-    .calc-number.red-text { color: var(--red); }
-
-    /* Action Buttons */
-    .btn-submit {
-      width: 100%;
-      padding: 14px 20px;
-      font-size: 1rem;
-      font-weight: 800;
-      color: white;
-      background: linear-gradient(135deg, var(--saffron) 0%, var(--saffron-hover) 100%);
+      font-size: 0.95rem;
       border: none;
-      border-radius: 10px;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(255, 119, 0, 0.3);
-      transition: all 0.2s ease;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      margin-top: 18px;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
     }
 
-    .btn-submit:hover:not(:disabled) {
+    .btn-primary {
+      background: linear-gradient(135deg, var(--red-primary) 0%, var(--saffron) 100%);
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(211, 47, 47, 0.25);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--red-dark) 0%, var(--saffron-light) 100%);
       transform: translateY(-1px);
-      box-shadow: 0 6px 16px rgba(255, 119, 0, 0.4);
     }
 
-    .btn-submit:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--red-primary);
+      color: var(--red-primary);
     }
 
-    .btn-login {
-      background: linear-gradient(135deg, var(--saffron) 0%, var(--saffron-hover) 100%);
-      color: white;
-      margin-top: 16px;
-    }
-
-    /* Alerts */
-    .alert {
-      padding: 13px 16px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      display: none;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .alert.success {
-      background: #E8F5E9;
-      color: #1B5E20;
-      border: 1px solid #A5D6A7;
-    }
-
-    .alert.error {
-      background: var(--red-light);
-      color: var(--red-hover);
-      border: 1px solid #FFCDD2;
-    }
-
-    /* Tables */
-    .table-responsive {
+    /* Table styling */
+    .table-container {
       overflow-x: auto;
-      margin-top: 12px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--surface-border);
     }
 
     table {
@@ -444,811 +322,526 @@
     }
 
     th {
-      background: #F1F5F9;
-      padding: 10px 12px;
-      text-align: left;
+      background: var(--saffron-bg);
+      color: var(--red-dark);
       font-weight: 700;
-      color: #475569;
-      border-bottom: 2px solid var(--border);
+      text-align: left;
+      padding: 0.85rem 1rem;
+      border-bottom: 2px solid var(--surface-border);
+      white-space: nowrap;
     }
 
     td {
-      padding: 10px 12px;
-      border-bottom: 1px solid var(--border);
-      color: var(--text);
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid var(--surface-border);
+      white-space: nowrap;
     }
 
-    /* Branded Footer */
-    footer {
-      background: #0B1120;
-      color: #94A3B8;
-      border-top: 4px solid var(--red);
-      margin-top: auto;
-      padding: 28px 20px 20px;
+    tr:last-child td {
+      border-bottom: none;
     }
 
-    .footer-wrap {
-      max-width: 1150px;
-      margin: 0 auto;
+    .status-badge {
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .status-settled {
+      background: #E8F5E9;
+      color: #2E7D32;
+    }
+
+    .status-pending {
+      background: var(--red-bg);
+      color: var(--red-primary);
+    }
+
+    /* Modal Login Dialog */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(42, 24, 16, 0.7);
+      backdrop-filter: blur(5px);
       display: flex;
-      flex-direction: column;
       align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      z-index: 1000;
+    }
+
+    .login-box {
+      background: #FFFFFF;
+      width: 100%;
+      max-width: 420px;
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      border-top: 6px solid var(--red-primary);
+    }
+
+    /* Footer */
+    footer {
+      background: #2A1810;
+      color: #D1C4BE;
+      padding: 1.5rem;
       text-align: center;
-      gap: 10px;
+      font-size: 0.82rem;
+      margin-top: auto;
+      border-top: 3px solid var(--saffron);
     }
 
-    .footer-brand {
-      color: #FFFFFF;
-      font-weight: 800;
-      font-size: 1rem;
+    footer a {
+      color: var(--saffron);
+      text-decoration: none;
+      font-weight: 600;
     }
 
-    .footer-brand span { color: var(--saffron); }
-
-    .footer-rights {
-      font-size: 0.8rem;
-      color: #64748B;
-    }
-
-    .spinner {
-      border: 3px solid rgba(255, 255, 255, 0.3);
-      border-radius: 50%;
-      border-top: 3px solid #FFFFFF;
-      width: 18px;
-      height: 18px;
-      animation: spin 0.8s linear infinite;
-      display: none;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    .hidden {
+      display: none !important;
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Navigation Header -->
-  <header>
-    <div class="header-wrap">
-      <div class="brand-box">
-        <img 
-          src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgu8AInEGfxr4matoFgMzWLMP5pbmYf5L_fQTI8Ki5mQoF1s33_2eIeAvsB4TkpKm6Xc9KkTz54ddDN3ZFK2Jnf2ccn3DzBvzgL3VuCU5vkgl6al396O-eQSbuhzl_jSOVh0UvnX7Xe-DaMk_P4FILNKeFSIdwcOGBExIGSqJ1Ro-x73QAVuHOq7ESCcDc/s784/1000081177.png" 
-          alt="SANKHA Logo" 
-          class="brand-logo"
-        />
-        <div class="brand-titles">
-          <h1>SANKHA - A Technology Company</h1>
-          <p>Sales Management System</p>
-        </div>
+  <!-- Driver Login Modal -->
+  <div id="loginModal" class="modal-overlay">
+    <div class="login-box">
+      <div style="text-align:center; margin-bottom:1.25rem;">
+        <img src="https://raw.githubusercontent.com/sushantjha-np/SANKHA/refs/heads/main/Sankha-fav.png" width="48" height="48" alt="Sankha Logo">
+        <h2 style="color:var(--red-dark); font-weight:800; margin-top:0.5rem; font-size:1.25rem;">🔐 Driver Authentication</h2>
+        <p style="color:var(--text-muted); font-size:0.82rem; margin-top:4px;">Enter your assigned driver name & PIN to unlock your shift ledger.</p>
       </div>
 
-      <div id="driverAuthBox" style="display: none;">
-        <div class="driver-pill">
-          <span class="driver-pill-text">🚚 Driver: <strong id="lblActiveDriver">...</strong></span>
-          <button class="btn-logout" onclick="logoutDriver()">Logout</button>
+      <div class="form-group" style="margin-bottom: 1rem;">
+        <label for="loginDriverSelect">Select Driver</label>
+        <select id="loginDriverSelect">
+          <option value="">-- Choose Driver --</option>
+        </select>
+      </div>
+
+      <div class="form-group" style="margin-bottom: 1.25rem;">
+        <label for="loginPinInput">Driver PIN Code</label>
+        <input type="password" id="loginPinInput" placeholder="Enter secure PIN" maxlength="10">
+      </div>
+
+      <button class="btn btn-primary" style="width:100%;" onclick="doDriverLogin()">Access Shift Dashboard</button>
+      <div id="loginError" style="color:var(--red-primary); font-size:0.8rem; font-weight:700; margin-top:0.75rem; text-align:center;"></div>
+    </div>
+  </div>
+
+  <!-- Top Header Navigation -->
+  <header>
+    <div class="header-container">
+      <div>
+        <div class="brand-title">
+          <img src="https://raw.githubusercontent.com/sushantjha-np/SANKHA/refs/heads/main/Sankha-fav.png" alt="Favicon">
+          SALES MANAGEMENT SYSTEM
         </div>
+        <div class="brand-subtitle">Powered by SANKHA - A Technology Company</div>
+      </div>
+      <div id="driverBadgeContainer" class="driver-badge hidden">
+        <span>🚚 Driver:</span>
+        <span id="activeDriverName" style="color:#FFF3E0; font-weight:800;"></span>
+        <button onclick="logoutDriver()" style="background:none; border:none; color:#FFCDD2; cursor:pointer; font-size:0.75rem; text-decoration:underline; margin-left:8px;">Logout</button>
       </div>
     </div>
   </header>
 
-  <!-- Notification Banner -->
-  <main>
-    <div id="statusAlert" class="alert"></div>
+  <!-- Main View -->
+  <main id="mainApp" class="hidden">
 
-    <!-- 1. DRIVER LOGIN INTERFACE -->
-    <section id="loginScreen">
-      <div class="login-card">
-        <div class="login-badge">🔐</div>
-        <h2>Driver Login</h2>
-        <p>Enter your assigned driver profile and secure PIN code to access the delivery system.</p>
+    <!-- Top Dashboard: Driver-Only Metrics -->
+    <section class="dashboard-grid">
+      <!-- 1. Pending Cash (All Time) -->
+      <div class="metric-card card-red">
+        <div>
+          <div class="metric-title">Pending Cash</div>
+          <span class="metric-tag tag-alltime">All-Time Outstanding</span>
+        </div>
+        <div>
+          <div class="metric-value" style="color:var(--red-primary);" id="valPendingCash">NPR 0.00</div>
+          <div class="metric-sub">Driver's uncollected receivables</div>
+        </div>
+      </div>
 
-        <form id="loginForm" onsubmit="handleLogin(event)">
-          <div class="form-group" style="text-align: left; margin-bottom: 16px;">
-            <label for="loginDriverSelect">Select Driver <span class="req">*</span></label>
-            <select id="loginDriverSelect" required>
-              <option value="">-- Choose Your Name --</option>
-              <option value="Deepak">Deepak</option>
-              <option value="Ujwal">Ujwal</option>
-              <option value="Suman">Suman</option>
-              <option value="Pranav">Pranav</option>
-              <option value="Gowam">Gowam</option>
-              <option value="Godam">Godam</option>
+      <!-- 2. Pending Jars (All Time) -->
+      <div class="metric-card card-red">
+        <div>
+          <div class="metric-title">Pending Jars</div>
+          <span class="metric-tag tag-alltime">All-Time With Customers</span>
+        </div>
+        <div>
+          <div class="metric-value" style="color:var(--red-dark);" id="valPendingJars">0</div>
+          <div class="metric-sub">Unreturned empty jars to be collected</div>
+        </div>
+      </div>
+
+      <!-- 3. Total Cash (Current Day Only) -->
+      <div class="metric-card card-saffron">
+        <div>
+          <div class="metric-title">Total Cash Collected</div>
+          <span class="metric-tag tag-today">Today (Single Day)</span>
+        </div>
+        <div>
+          <div class="metric-value" style="color:var(--saffron);" id="valTotalCashToday">NPR 0.00</div>
+          <div class="metric-sub">Today's collected cash in hand</div>
+        </div>
+      </div>
+
+      <!-- 4. Total Jars Delivered (Current Day Only) -->
+      <div class="metric-card card-saffron">
+        <div>
+          <div class="metric-title">Total Jars Delivered</div>
+          <span class="metric-tag tag-today">Today (Single Day)</span>
+        </div>
+        <div>
+          <div class="metric-value" style="color:#D84315;" id="valTotalDeliveredToday">0</div>
+          <div class="metric-sub">Jars supplied today by this driver</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dispatch / Delivery Entry Form -->
+    <section class="card">
+      <div class="card-header">
+        <h3 class="card-title">🚚 Dispatch / Delivery Entry</h3>
+        <span style="font-size:0.75rem; color:var(--text-muted); font-weight:600;">Syncs in real-time to Google Sheets</span>
+      </div>
+
+      <form id="deliveryForm" onsubmit="event.preventDefault(); submitDelivery();">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="delCustomer">Customer Directory</label>
+            <select id="delCustomer" required onchange="onCustomerSelect()">
+              <option value="">-- Select Customer --</option>
             </select>
           </div>
 
-          <div class="form-group" style="text-align: left; margin-bottom: 20px;">
-            <label for="loginPin">Driver 4-Digit PIN <span class="req">*</span></label>
-            <input 
-              type="password" 
-              id="loginPin" 
-              class="pin-input" 
-              maxlength="6" 
-              placeholder="••••" 
-              required 
-              autocomplete="current-password"
-            />
+          <div class="form-group">
+            <label for="delArea">Delivery Area</label>
+            <input type="text" id="delArea" placeholder="Area" readonly style="background:#FFF8F3;">
           </div>
 
-          <button type="submit" id="btnLogin" class="btn-submit btn-login">
-            <span class="spinner" id="loginSpinner"></span>
-            <span id="btnLoginText">Unlock & Enter Portal</span>
+          <div class="form-group">
+            <label for="delDelivered">Jars Delivered</label>
+            <input type="number" id="delDelivered" min="0" value="1" required oninput="recalcPayment()">
+          </div>
+
+          <div class="form-group">
+            <label for="delReturned">Empty Jars Returned</label>
+            <input type="number" id="delReturned" min="0" value="1" required>
+          </div>
+
+          <div class="form-group">
+            <label for="delRate">Unit Price (NPR)</label>
+            <input type="number" id="delRate" step="0.01" min="0" value="35" required oninput="recalcPayment()">
+          </div>
+
+          <div class="form-group">
+            <label for="delExpected">Total Expected (NPR)</label>
+            <input type="number" id="delExpected" readonly style="background:#FFF8F3; font-weight:700;">
+          </div>
+
+          <div class="form-group">
+            <label for="delCashPaid">Cash Paid (NPR)</label>
+            <input type="number" id="delCashPaid" step="0.01" min="0" value="0" required>
+          </div>
+
+          <div class="form-group">
+            <label for="delPayMethod">Payment Method</label>
+            <select id="delPayMethod">
+              <option value="Cash">Cash</option>
+              <option value="Fonepay/QR">Fonepay/QR</option>
+              <option value="Credit">Credit / Due</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="margin-top:1.25rem; display:flex; justify-content:flex-end;">
+          <button type="submit" id="btnSubmitDelivery" class="btn btn-primary">
+            <span>💾 Record Delivery</span>
           </button>
-        </form>
+        </div>
+      </form>
+    </section>
+
+    <!-- Today's Shift Entries Table (Driver Only) -->
+    <section class="card">
+      <div class="card-header">
+        <h3 class="card-title">📋 Today's Deliveries Log</h3>
+        <span id="entriesCount" style="font-size:0.75rem; font-weight:700; color:var(--saffron);">0 logged today</span>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Customer</th>
+              <th>Area</th>
+              <th>Delivered</th>
+              <th>Returned</th>
+              <th>Paid (NPR)</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="entriesTableBody">
+            <tr>
+              <td colspan="7" style="text-align:center; color:var(--text-muted); padding:1.5rem;">No deliveries logged yet today for this driver.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
-    <!-- 2. AUTHENTICATED WORKSPACE -->
-    <section id="appWorkspace" style="display: none;">
-      
-      <!-- Driver Shift Statistics -->
-      <div class="stats-row">
-        <div class="stat-card saffron-theme">
-          <span class="stat-label">Jars Delivered (Shift)</span>
-          <span class="stat-val" id="statJarsDelivered">0</span>
-        </div>
-        <div class="stat-card red-theme">
-          <span class="stat-label">Empty Jars Collected</span>
-          <span class="stat-val" id="statJarsReturned">0</span>
-        </div>
-        <div class="stat-card green-theme">
-          <span class="stat-label">Cash Collected (NPR)</span>
-          <span class="stat-val" id="statCashCollected">0.00</span>
-        </div>
+    <!-- Register New Customer Modal/Accordion -->
+    <section class="card">
+      <div class="card-header">
+        <h3 class="card-title">👤 Register Customer to Directory</h3>
       </div>
-
-      <!-- Navigation Tabs -->
-      <div class="tab-bar">
-        <button class="tab-btn active" onclick="switchTab('delivery')">
-          🚚 Log Delivery
-        </button>
-        <button class="tab-btn" onclick="switchTab('history')">
-          📋 Today's Trip Log (<span id="tripLogCount">0</span>)
-        </button>
-        <button class="tab-btn" onclick="switchTab('customer')">
-          👤 Add New Customer
-        </button>
-      </div>
-
-      <!-- TAB A: LOG DELIVERY -->
-      <div id="tabDelivery" class="card">
-        <div class="card-title">
-          <span>🚚</span> Dispatch / Delivery Entry
-        </div>
-        <div class="card-subtitle">
-          Record delivery quantity, empty jars received back, unit prices, and payment settlement.
-        </div>
-
-        <form id="deliveryForm" onsubmit="submitDelivery(event)">
-          <div class="form-grid">
-            
-            <div class="form-group col-4">
-              <label for="bsDate">BS Date (Bikram Sambat) <span class="req">*</span></label>
-              <input type="text" id="bsDate" required placeholder="YYYY-MM-DD (e.g. 2083-06-10)" />
-            </div>
-
-            <div class="form-group col-4">
-              <label for="delTime">Time <span class="req">*</span></label>
-              <input type="text" id="delTime" required placeholder="HH:MM" />
-            </div>
-
-            <div class="form-group col-4">
-              <label for="driverName">Active Driver <span class="req">*</span></label>
-              <input type="text" id="driverName" readonly />
-            </div>
-
-            <div class="form-group col-6">
-              <label for="custSelect">Customer Profile <span class="req">*</span></label>
-              <select id="custSelect" onchange="onCustomerSelect()" required>
-                <option value="">-- Search & Choose Customer --</option>
-              </select>
-            </div>
-
-            <div class="form-group col-6">
-              <label for="delArea">Delivery Area <span class="req">*</span></label>
-              <select id="delArea" required>
-                <option value="">-- Select Area --</option>
-                <option value="Kalanki">Kalanki</option>
-                <option value="Sanepa">Sanepa</option>
-                <option value="Bafal">Bafal</option>
-                <option value="Kalimati 13">Kalimati 13</option>
-                <option value="Thamel">Thamel</option>
-                <option value="Gaushala">Gaushala</option>
-                <option value="Tahachal">Tahachal</option>
-                <option value="Balkhu">Balkhu</option>
-                <option value="Kuleshwor">Kuleshwor</option>
-                <option value="Tripureshwor">Tripureshwor</option>
-                <option value="Teku">Teku</option>
-                <option value="Kirtipur">Kirtipur</option>
-                <option value="BishnuDevi">BishnuDevi</option>
-                <option value="Naikaf">Naikaf</option>
-                <option value="Naxal">Naxal</option>
-                <option value="MataTirtha">MataTirtha</option>
-                <option value="Babarmahal">Babarmahal</option>
-                <option value="Tangal">Tangal</option>
-              </select>
-            </div>
-
-            <div class="form-group col-6">
-              <label for="delProduct">Product <span class="req">*</span></label>
-              <select id="delProduct" onchange="onProductSelect()" required>
-                <option value="20L Water Jar" data-rate="35">20L Water Jar (Std NPR 35.00)</option>
-                <option value="1 L Bottle Box" data-rate="140">1 L Bottle Box (Std NPR 140.00)</option>
-                <option value="500mL Bottle Box" data-rate="350">500mL Bottle Box (Std NPR 350.00)</option>
-                <option value="New Jar" data-rate="300">New Jar (Std NPR 300.00)</option>
-              </select>
-            </div>
-
-            <div class="form-group col-6">
-              <label for="unitPrice">Unit Rate (NPR) <span class="req">*</span></label>
-              <input type="number" step="0.01" id="unitPrice" value="35.00" oninput="computeDeliveryMath()" required />
-            </div>
-
-            <div class="form-group col-4">
-              <label for="jarsDelivered">Jars Delivered <span class="req">*</span></label>
-              <input type="number" id="jarsDelivered" min="0" value="1" oninput="computeDeliveryMath()" required />
-            </div>
-
-            <div class="form-group col-4">
-              <label for="jarsReturned">Empty Jars Returned</label>
-              <input type="number" id="jarsReturned" min="0" value="0" oninput="computeDeliveryMath()" />
-            </div>
-
-            <div class="form-group col-4">
-              <label for="cashPaid">Amount Paid (NPR)</label>
-              <input type="number" step="0.01" id="cashPaid" min="0" value="0" oninput="computeDeliveryMath()" />
-            </div>
-
-            <!-- Live Bill Calculations -->
-            <div class="col-12">
-              <div class="calc-banner">
-                <div class="calc-box">
-                  <span class="calc-tag">Expected Total</span>
-                  <span class="calc-number" id="lblExpected">NPR 35.00</span>
-                </div>
-                <div class="calc-box">
-                  <span class="calc-tag">Pending Payment</span>
-                  <span class="calc-number red-text" id="lblPending">NPR 35.00</span>
-                </div>
-                <div class="calc-box">
-                  <span class="calc-tag">Outstanding Jars</span>
-                  <span class="calc-number" id="lblJarBalance">1 Jar</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group col-6">
-              <label for="payMethod">Payment Method <span class="req">*</span></label>
-              <select id="payMethod" required>
-                <option value="Cash">Cash</option>
-                <option value="Fonepay / QR">Fonepay / QR</option>
-                <option value="eSewa">eSewa</option>
-                <option value="Khalti">Khalti</option>
-                <option value="Bank Transfer">Bank Transfer</option>
-                <option value="Credit / Due">Credit / Due</option>
-              </select>
-            </div>
-
-            <div class="form-group col-6">
-              <label for="delNotes">Trip Notes / Instructions</label>
-              <input type="text" id="delNotes" placeholder="e.g. Paid in cash, gate pass stamped" />
-            </div>
-
+      <form id="newCustForm" onsubmit="event.preventDefault(); submitNewCustomer();">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="custNameEn">Customer Name (English)</label>
+            <input type="text" id="custNameEn" placeholder="e.g. Kalimati Mart" required>
           </div>
-
-          <button type="submit" id="btnSubmitDelivery" class="btn-submit">
-            <span class="spinner" id="delSpinner"></span>
-            <span id="btnSubmitText">Submit Delivery Entry</span>
-          </button>
-        </form>
-      </div>
-
-      <!-- TAB B: TODAY'S LOG -->
-      <div id="tabHistory" class="card" style="display: none;">
-        <div class="card-title">
-          <span>📋</span> Shift Entries for <strong id="lblHistoryDriver"></strong>
-        </div>
-        <div class="card-subtitle">
-          Entries submitted during this active session directly to Google Sheets.
-        </div>
-
-        <div class="table-responsive">
-          <table>
-            <thead>
-              <tr>
-                <th>Time</th>
-                <th>Customer</th>
-                <th>Area</th>
-                <th>Delivered</th>
-                <th>Returned</th>
-                <th>Amount</th>
-                <th>Paid</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody id="historyTableBody">
-              <tr>
-                <td colspan="8" style="text-align: center; color: var(--text-muted); padding: 24px;">
-                  No deliveries logged yet in this shift.
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- TAB C: NEW CUSTOMER -->
-      <div id="tabCustomer" class="card" style="display: none;">
-        <div class="card-title">
-          <span>👤</span> Register Customer to Directory
-        </div>
-        <div class="card-subtitle">
-          Adds new customers into the database directory with custom agreed rates.
-        </div>
-
-        <form id="customerForm" onsubmit="submitCustomer(event)">
-          <div class="form-grid">
-            <div class="form-group col-6">
-              <label for="newCustEn">Customer Name (English) <span class="req">*</span></label>
-              <input type="text" id="newCustEn" placeholder="e.g. Kathmandu Coffee Hub" required />
-            </div>
-
-            <div class="form-group col-6">
-              <label for="newCustNp">Customer Name (नेपाली)</label>
-              <input type="text" id="newCustNp" placeholder="उदा. काठमाडौं कफी हब" />
-            </div>
-
-            <div class="form-group col-4">
-              <label for="newCustCode">Customer Code</label>
-              <input type="text" id="newCustCode" placeholder="Auto-generated if blank (e.g. CUST-021)" />
-            </div>
-
-            <div class="form-group col-4">
-              <label for="newCustArea">Area <span class="req">*</span></label>
-              <select id="newCustArea" required>
-                <option value="">-- Select Area --</option>
-                <option value="Kalanki">Kalanki</option>
-                <option value="Sanepa">Sanepa</option>
-                <option value="Bafal">Bafal</option>
-                <option value="Kalimati 13">Kalimati 13</option>
-                <option value="Thamel">Thamel</option>
-                <option value="Gaushala">Gaushala</option>
-                <option value="Tahachal">Tahachal</option>
-                <option value="Balkhu">Balkhu</option>
-                <option value="Kuleshwor">Kuleshwor</option>
-                <option value="Tripureshwor">Tripureshwor</option>
-                <option value="Teku">Teku</option>
-                <option value="Kirtipur">Kirtipur</option>
-                <option value="BishnuDevi">BishnuDevi</option>
-                <option value="Naikaf">Naikaf</option>
-                <option value="Naxal">Naxal</option>
-                <option value="MataTirtha">MataTirtha</option>
-                <option value="Babarmahal">Babarmahal</option>
-                <option value="Tangal">Tangal</option>
-              </select>
-            </div>
-
-            <div class="form-group col-4">
-              <label for="newCustPhone">Phone Number</label>
-              <input type="tel" id="newCustPhone" placeholder="98XXXXXXXX" />
-            </div>
-
-            <div class="form-group col-8">
-              <label for="newCustAddr">Detailed Address</label>
-              <input type="text" id="newCustAddr" placeholder="Building, Ward, Landmark..." />
-            </div>
-
-            <div class="form-group col-4">
-              <label for="newCustRate">Agreed Rate per Jar (NPR)</label>
-              <input type="number" step="0.01" id="newCustRate" value="35.00" />
-            </div>
-
-            <div class="form-group col-12">
-              <label for="newCustNotes">Notes</label>
-              <input type="text" id="newCustNotes" placeholder="e.g. Monthly bill settlement" />
-            </div>
+          <div class="form-group">
+            <label for="custNameNp">Customer Name (नेपाली)</label>
+            <input type="text" id="custNameNp" placeholder="e.g. कालिमाटी मार्ट">
           </div>
-
-          <button type="submit" id="btnSubmitCust" class="btn-submit">
-            <span class="spinner" id="custSpinner"></span>
-            <span>Register to Customer Directory</span>
-          </button>
-        </form>
-      </div>
-
+          <div class="form-group">
+            <label for="custAreaSelect">Area</label>
+            <select id="custAreaSelect" required>
+              <option value="">-- Choose Area --</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="custRate">Agreed Rate per Jar (NPR)</label>
+            <input type="number" id="custRate" value="35" step="0.5" required>
+          </div>
+        </div>
+        <div style="margin-top:1rem; display:flex; justify-content:flex-end;">
+          <button type="submit" class="btn btn-outline">Add to Customer Directory</button>
+        </div>
+      </form>
     </section>
+
   </main>
 
-  <!-- Branded Footer -->
+  <!-- Footer -->
   <footer>
-    <div class="footer-wrap">
-      <div class="footer-brand">
-        <span>SANKHA</span> - A Technology Company
-      </div>
-      <p style="font-size: 0.85rem; color: #CBD5E1;">
-        Sales Management System &bull; Live Google Sheets Sync
-      </p>
-      <div class="footer-rights">
-        &copy; 2026 SANKHA - A Technology Company. All Rights Reserved.
-      </div>
+    <div style="max-width:1100px; margin:0 auto; display:flex; flex-direction:column; gap:0.4rem; align-items:center;">
+      <div style="font-weight:700; color:#FFFFFF;">SALES MANAGEMENT SYSTEM</div>
+      <div>Powered by <a href="https://github.com/sushantjha-np/SANKHA" target="_blank" rel="noopener">SANKHA - A Technology Company</a></div>
+      <div style="font-size:0.75rem; color:#A89288;">Live Google Sheets Cloud Sync &copy; 2026 SANKHA. All Rights Reserved.</div>
     </div>
   </footer>
 
-  <!-- Application Logic -->
+  <!-- Frontend Logic -->
   <script>
-    /**
-     * ⚠️ PASTE YOUR GOOGLE APPS SCRIPT WEB APP DEPLOYMENT URL HERE:
-     */
-    const SCRIPT_URL = "https://script.google.com/macros/library/d/1vYew0S0rmOPe2QNAD-1lb4IOjTSIivjl64rRgi4QhGmmjeerY_GeyVBP/9";
-
-    // Driver Credentials PIN mapping (synced with Settings tab)
-    const DRIVER_PIN_VAULT = {
-      "Deepak": "1986",
-      "Ujwal": "2044",
-      "Suman": "2021",
-      "Pranav": "2076",
-      "Gowam": "1988",
-      "Godam": "1234",
-      "Admin": "9999"
+    let appData = {
+      drivers: [],
+      areas: [],
+      customers: [],
+      currentDriver: null
     };
 
-    // Customer Directory Database (from Customers tab)
-    const CUSTOMER_DIR = [
-      { code: "CUST-001", en: "Sapkota Pasal", np: "सापकोटा पसल", area: "Kalanki", rate: 35.00 },
-      { code: "CUST-002", en: "Samaj Kalyan Birdha Aashram", np: "समाज कल्याण वृद्ध आश्रम", area: "Gaushala", rate: 50.00 },
-      { code: "CUST-003", en: "N.I.C. Bank", np: "एन.आई.सी. बैंक", area: "Kirtipur", rate: 50.00 },
-      { code: "CUST-004", en: "New Garment", np: "न्यू गार्मेन्ट", area: "Kirtipur", rate: 30.00 },
-      { code: "CUST-005", en: "Nepal Achar Udhog", np: "नेपाल अचार उद्योग", area: "MataTirtha", rate: 31.64 },
-      { code: "CUST-006", en: "Natural Sahakari", np: "नेचुरल सहकारी", area: "Kalimati 13", rate: 40.00 },
-      { code: "CUST-007", en: "Napi Bibhag", np: "नापी विभाग", area: "Kalanki", rate: 40.00 },
-      { code: "CUST-008", en: "Kedia Shyam", np: "केडिया श्याम", area: "Kalimati 13", rate: 65.00 },
-      { code: "CUST-009", en: "Housing Garment", np: "हाउसिंग गार्मेन्ट", area: "Naikaf", rate: 35.00 },
-      { code: "CUST-010", en: "FTEN", np: "एफटेन", area: "Kalimati 13", rate: 40.00 },
-      { code: "CUST-011", en: "DUS", np: "डस", area: "Kalimati 13", rate: 40.00 },
-      { code: "CUST-012", en: "Divya Jwellers", np: "दिव्या ज्वेलर्स", area: "Kalimati 13", rate: 40.00 },
-      { code: "CUST-013", en: "Baideshik Rojgar Bibhag", np: "वैदेशिक रोजगार विभाग", area: "Tahachal", rate: 55.00 },
-      { code: "CUST-014", en: "Canteen Baideshik Bibhag", np: "क्यान्टिन वैदेशिक विभाग", area: "Tahachal", rate: 35.00 },
-      { code: "CUST-015", en: "Babarmahal Office", np: "बबरमहल अफिस", area: "Babarmahal", rate: 55.00 },
-      { code: "CUST-016", en: "Aantrik Rajshaw Karyalay", np: "आन्तरिक राजस्व कार्यालय", area: "Tangal", rate: 55.00 },
-      { code: "CUST-017", en: "Baral Store", np: "बल्खु क्याफे", area: "Kalanki", rate: 30.00 },
-      { code: "CUST-018", en: "Kawad", np: "", area: "Kalanki", rate: 35.00 },
-      { code: "CUST-019", en: "New Kirana", np: "", area: "Kalanki", rate: 35.00 },
-      { code: "CUST-020", en: "Sekuwa Corner", np: "", area: "Kalanki", rate: 35.00 },
-      { code: "CUST-021", en: "Bafal Baje", np: "", area: "Bafal", rate: 35.00 },
-      { code: "CUST-022", en: "Bafal Didi", np: "", area: "Bafal", rate: 35.00 },
-      { code: "CUST-023", en: "Bhandari Aunty", np: "", area: "Bafal", rate: 35.00 },
-      { code: "CUST-024", en: "Dhadhing Dairy", np: "", area: "Bafal", rate: 35.00 },
-      { code: "CUST-025", en: "Garment Mathi Puspa Karki", np: "", area: "Bafal", rate: 35.00 },
-      { code: "CUST-026", en: "Hak Medical Ghar", np: "", area: "Kalanki", rate: 45.00 },
-      { code: "CUST-027", en: "Hospital Pachhadi", np: "", area: "Kalanki", rate: 40.00 },
-      { code: "CUST-028", en: "Kalanki Hostel", np: "", area: "Kalanki", rate: 35.00 },
-      { code: "CUST-029", en: "Mama Pasal", np: "", area: "Kalanki", rate: 30.00 }
-    ];
+    window.onload = function() {
+      google.script.run
+        .withSuccessHandler(populateInitialData)
+        .withFailureHandler(err => alert("Failed to fetch initial sheet data: " + err.message))
+        .getInitialData();
+    };
 
-    // Shift Tracking
-    let shiftDeliveries = [];
+    function populateInitialData(data) {
+      appData = data;
+      
+      // Populate Driver dropdown in Login Modal
+      const drvSelect = document.getElementById('loginDriverSelect');
+      drvSelect.innerHTML = '<option value="">-- Choose Driver --</option>';
+      data.drivers.forEach(d => {
+        const opt = document.createElement('option');
+        opt.value = d.name;
+        opt.textContent = d.name;
+        drvSelect.appendChild(opt);
+      });
 
-    // --- AUTHENTICATION ---
-    function handleLogin(e) {
-      e.preventDefault();
+      // Populate Customer dropdown
+      const custSelect = document.getElementById('delCustomer');
+      custSelect.innerHTML = '<option value="">-- Select Customer --</option>';
+      data.customers.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c.nameEn;
+        opt.textContent = `${c.nameEn} ${c.nameNp ? '(' + c.nameNp + ')' : ''}`;
+        opt.dataset.area = c.area;
+        opt.dataset.rate = c.defaultRate;
+        custSelect.appendChild(opt);
+      });
+
+      // Populate Area in Customer form
+      const areaSelect = document.getElementById('custAreaSelect');
+      areaSelect.innerHTML = '<option value="">-- Choose Area --</option>';
+      data.areas.forEach(a => {
+        const opt = document.createElement('option');
+        opt.value = a;
+        opt.textContent = a;
+        areaSelect.appendChild(opt);
+      });
+      
+      recalcPayment();
+    }
+
+    function doDriverLogin() {
       const driver = document.getElementById('loginDriverSelect').value;
-      const pin = document.getElementById('loginPin').value.trim();
-      const alertBox = document.getElementById('statusAlert');
+      const pin = document.getElementById('loginPinInput').value;
+      const errBox = document.getElementById('loginError');
+      errBox.textContent = '';
 
-      if (!driver) {
-        showToast("Please choose a driver profile.", false);
+      if (!driver || !pin) {
+        errBox.textContent = 'Please choose a driver and enter the PIN.';
         return;
       }
 
-      const expectedPin = DRIVER_PIN_VAULT[driver];
-      if (expectedPin && expectedPin === pin) {
-        // Successful login
-        localStorage.setItem("sankha_active_driver", driver);
-        enterDriverSession(driver);
-        showToast(`Welcome back, ${driver}! Session active.`, true);
-      } else {
-        showToast("Invalid PIN! Please enter your correct 4-digit code.", false);
-      }
-    }
-
-    function enterDriverSession(driver) {
-      document.getElementById('loginScreen').style.display = 'none';
-      document.getElementById('appWorkspace').style.display = 'block';
-      document.getElementById('driverAuthBox').style.display = 'block';
-
-      document.getElementById('lblActiveDriver').textContent = driver;
-      document.getElementById('lblHistoryDriver').textContent = driver;
-      document.getElementById('driverName').value = driver;
-
-      populateCustomerOptions();
-      refreshTimeAndDate();
-      computeDeliveryMath();
-      updateShiftMetrics();
+      google.script.run
+        .withSuccessHandler(function(res) {
+          if (res.success) {
+            appData.currentDriver = res.driverName;
+            document.getElementById('loginModal').classList.add('hidden');
+            document.getElementById('mainApp').classList.remove('hidden');
+            document.getElementById('driverBadgeContainer').classList.remove('hidden');
+            document.getElementById('activeDriverName').textContent = res.driverName;
+            
+            renderDriverStats(res.stats);
+          } else {
+            errBox.textContent = res.message;
+          }
+        })
+        .withFailureHandler(err => errBox.textContent = err.message)
+        .authenticateDriver(driver, pin);
     }
 
     function logoutDriver() {
-      localStorage.removeItem("sankha_active_driver");
-      document.getElementById('loginPin').value = '';
-      document.getElementById('appWorkspace').style.display = 'none';
-      document.getElementById('driverAuthBox').style.display = 'none';
-      document.getElementById('loginScreen').style.display = 'block';
-      showToast("Logged out successfully.", true);
+      appData.currentDriver = null;
+      document.getElementById('loginModal').classList.remove('hidden');
+      document.getElementById('mainApp').classList.add('hidden');
+      document.getElementById('driverBadgeContainer').classList.add('hidden');
+      document.getElementById('loginPinInput').value = '';
     }
 
-    // --- POPULATE CUSTOMERS ---
-    function populateCustomerOptions() {
-      const sel = document.getElementById('custSelect');
-      sel.innerHTML = '<option value="">-- Search & Choose Customer --</option>';
+    function renderDriverStats(stats) {
+      // 1. Pending Cash (All time)
+      document.getElementById('valPendingCash').textContent = 'NPR ' + (stats.pendingCashAllTime || 0).toLocaleString(undefined, {minimumFractionDigits: 2});
+      
+      // 2. Pending Jars (All time)
+      document.getElementById('valPendingJars').textContent = (stats.pendingJarAllTime || 0);
+      
+      // 3. Total Cash (Current Day Only)
+      document.getElementById('valTotalCashToday').textContent = 'NPR ' + (stats.totalCashToday || 0).toLocaleString(undefined, {minimumFractionDigits: 2});
+      
+      // 4. Total Jars Delivered (Current Day Only)
+      document.getElementById('valTotalDeliveredToday').textContent = (stats.totalDeliveredToday || 0);
 
-      CUSTOMER_DIR.forEach((c, idx) => {
-        const opt = document.createElement('option');
-        opt.value = idx;
-        const np = c.np ? ` (${c.np})` : '';
-        opt.textContent = `${c.en}${np} — ${c.area}`;
-        sel.appendChild(opt);
-      });
+      // Render today's shift table
+      const tbody = document.getElementById('entriesTableBody');
+      const countLabel = document.getElementById('entriesCount');
+      
+      if (!stats.todayEntries || stats.todayEntries.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center; color:var(--text-muted); padding:1.5rem;">No deliveries logged yet today for this driver.</td></tr>';
+        countLabel.textContent = '0 logged today';
+      } else {
+        countLabel.textContent = `${stats.todayEntries.length} logged today`;
+        tbody.innerHTML = stats.todayEntries.map(e => `
+          <tr>
+            <td>${e.time}</td>
+            <td><strong>${e.customer}</strong></td>
+            <td>${e.area}</td>
+            <td>${e.delivered}</td>
+            <td>${e.returned}</td>
+            <td>NPR ${parseFloat(e.cashPaid).toFixed(2)}</td>
+            <td><span class="status-badge ${e.status === 'Settled' ? 'status-settled' : 'status-pending'}">${e.status}</span></td>
+          </tr>
+        `).join('');
+      }
     }
 
     function onCustomerSelect() {
-      const idx = document.getElementById('custSelect').value;
-      if (idx === "") return;
-
-      const c = CUSTOMER_DIR[idx];
-      if (c) {
-        document.getElementById('delArea').value = c.area;
-        document.getElementById('unitPrice').value = Number(c.rate).toFixed(2);
-        computeDeliveryMath();
+      const select = document.getElementById('delCustomer');
+      const selectedOpt = select.options[select.selectedIndex];
+      if (selectedOpt && selectedOpt.value) {
+        document.getElementById('delArea').value = selectedOpt.dataset.area || '';
+        document.getElementById('delRate').value = selectedOpt.dataset.rate || 35;
       }
+      recalcPayment();
     }
 
-    function onProductSelect() {
-      const prodSel = document.getElementById('delProduct');
-      const opt = prodSel.options[prodSel.selectedIndex];
-      const rate = parseFloat(opt.getAttribute('data-rate'));
-
-      const custIdx = document.getElementById('custSelect').value;
-      if (opt.value === '20L Water Jar' && custIdx !== "") {
-        document.getElementById('unitPrice').value = Number(CUSTOMER_DIR[custIdx].rate).toFixed(2);
-      } else if (!isNaN(rate)) {
-        document.getElementById('unitPrice').value = rate.toFixed(2);
-      }
-      computeDeliveryMath();
+    function recalcPayment() {
+      const delivered = parseFloat(document.getElementById('delDelivered').value) || 0;
+      const rate = parseFloat(document.getElementById('delRate').value) || 0;
+      const total = delivered * rate;
+      document.getElementById('delExpected').value = total.toFixed(2);
+      document.getElementById('delCashPaid').value = total.toFixed(2);
     }
 
-    // --- REALTIME MATH ---
-    function computeDeliveryMath() {
-      const delivered = parseFloat(document.getElementById('jarsDelivered').value) || 0;
-      const returned = parseFloat(document.getElementById('jarsReturned').value) || 0;
-      const rate = parseFloat(document.getElementById('unitPrice').value) || 0;
-      const paid = parseFloat(document.getElementById('cashPaid').value) || 0;
-
-      const expected = delivered * rate;
-      const pending = Math.max(0, expected - paid);
-      const jarBal = delivered - returned;
-
-      document.getElementById('lblExpected').innerText = `NPR ${expected.toFixed(2)}`;
-      document.getElementById('lblPending').innerText = `NPR ${pending.toFixed(2)}`;
-      document.getElementById('lblJarBalance').innerText = `${jarBal} Jar${jarBal !== 1 ? 's' : ''}`;
-    }
-
-    function refreshTimeAndDate() {
-      const now = new Date();
-      const hrs = String(now.getHours()).padStart(2, '0');
-      const mins = String(now.getMinutes()).padStart(2, '0');
-      document.getElementById('delTime').value = `${hrs}:${mins}`;
-
-      if (!document.getElementById('bsDate').value) {
-        document.getElementById('bsDate').value = "2083-06-10";
-      }
-    }
-
-    // --- TAB SWITCHING ---
-    function switchTab(tabId) {
-      document.getElementById('tabDelivery').style.display = (tabId === 'delivery') ? 'block' : 'none';
-      document.getElementById('tabHistory').style.display = (tabId === 'history') ? 'block' : 'none';
-      document.getElementById('tabCustomer').style.display = (tabId === 'customer') ? 'block' : 'none';
-
-      const btns = document.querySelectorAll('.tab-btn');
-      btns[0].classList.toggle('active', tabId === 'delivery');
-      btns[1].classList.toggle('active', tabId === 'history');
-      btns[2].classList.toggle('active', tabId === 'customer');
-    }
-
-    // --- SHIFT KPIS ---
-    function updateShiftMetrics() {
-      let totalDelivered = 0;
-      let totalReturned = 0;
-      let totalCash = 0;
-
-      shiftDeliveries.forEach(item => {
-        totalDelivered += Number(item.delivered) || 0;
-        totalReturned += Number(item.returned) || 0;
-        totalCash += Number(item.paid) || 0;
-      });
-
-      document.getElementById('statJarsDelivered').innerText = totalDelivered;
-      document.getElementById('statJarsReturned').innerText = totalReturned;
-      document.getElementById('statCashCollected').innerText = totalCash.toFixed(2);
-      document.getElementById('tripLogCount').innerText = shiftDeliveries.length;
-
-      // Update table
-      const tbody = document.getElementById('historyTableBody');
-      if (shiftDeliveries.length === 0) {
-        tbody.innerHTML = `<tr><td colspan="8" style="text-align: center; color: var(--text-muted); padding: 24px;">No deliveries logged yet in this shift.</td></tr>`;
+    function submitDelivery() {
+      if (!appData.currentDriver) {
+        alert("Please log in as a driver first.");
         return;
       }
-
-      tbody.innerHTML = shiftDeliveries.slice().reverse().map(d => `
-        <tr>
-          <td><strong>${d.time}</strong></td>
-          <td>${d.customer}</td>
-          <td>${d.area}</td>
-          <td><span style="font-weight:700; color:var(--saffron);">${d.delivered}</span></td>
-          <td>${d.returned}</td>
-          <td>NPR ${d.expected.toFixed(2)}</td>
-          <td><strong style="color:var(--success);">NPR ${d.paid.toFixed(2)}</strong></td>
-          <td><span style="font-size:0.75rem; background:#E2E8F0; padding:2px 8px; border-radius:999px;">${d.method}</span></td>
-        </tr>
-      `).join('');
-    }
-
-    // --- FORM SUBMISSIONS ---
-    async function submitDelivery(e) {
-      e.preventDefault();
-
-      if (SCRIPT_URL.includes("YOUR_GOOGLE_APPS_SCRIPT")) {
-        showToast("Please paste your Google Apps Script URL in SCRIPT_URL variable!", false);
-        return;
-      }
-
-      const custIdx = document.getElementById('custSelect').value;
-      const custObj = CUSTOMER_DIR[custIdx] || {};
-
-      const payload = {
-        action: "addDelivery",
-        bsDate: document.getElementById('bsDate').value.trim(),
-        time: document.getElementById('delTime').value.trim(),
-        customerEn: custObj.en || "",
-        customerNp: custObj.np || "",
-        area: document.getElementById('delArea').value,
-        driver: document.getElementById('driverName').value,
-        product: document.getElementById('delProduct').value,
-        jarsDelivered: document.getElementById('jarsDelivered').value,
-        jarsReturned: document.getElementById('jarsReturned').value,
-        unitPrice: document.getElementById('unitPrice').value,
-        cashPaid: document.getElementById('cashPaid').value,
-        paymentMethod: document.getElementById('payMethod').value,
-        notes: document.getElementById('delNotes').value.trim()
-      };
 
       const btn = document.getElementById('btnSubmitDelivery');
-      const spinner = document.getElementById('delSpinner');
-      const btnText = document.getElementById('btnSubmitText');
-
       btn.disabled = true;
-      spinner.style.display = 'inline-block';
-      btnText.innerText = 'Writing to Google Sheets...';
+      btn.innerHTML = '<span>⏳ Recording...</span>';
 
-      try {
-        const res = await fetch(SCRIPT_URL, {
-          method: "POST",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify(payload)
-        });
-
-        const data = await res.json();
-        if (data.status === "success") {
-          showToast(`Delivery for ${payload.customerEn} successfully saved to Google Sheets!`, true);
-          
-          // Log shift entry
-          const deliveredNum = Number(payload.jarsDelivered) || 0;
-          const unitRate = Number(payload.unitPrice) || 0;
-          shiftDeliveries.push({
-            time: payload.time,
-            customer: payload.customerEn,
-            area: payload.area,
-            delivered: deliveredNum,
-            returned: Number(payload.jarsReturned) || 0,
-            expected: deliveredNum * unitRate,
-            paid: Number(payload.cashPaid) || 0,
-            method: payload.paymentMethod
-          });
-
-          updateShiftMetrics();
-          document.getElementById('deliveryForm').reset();
-          document.getElementById('driverName').value = localStorage.getItem("sankha_active_driver");
-          refreshTimeAndDate();
-          computeDeliveryMath();
-        } else {
-          throw new Error(data.message || "Failed to record.");
-        }
-      } catch (err) {
-        console.error(err);
-        showToast("Synced with Google Sheets.", true);
-      } finally {
-        btn.disabled = false;
-        spinner.style.display = 'none';
-        btnText.innerText = 'Submit Delivery Entry';
-      }
-    }
-
-    async function submitCustomer(e) {
-      e.preventDefault();
-
-      if (SCRIPT_URL.includes("YOUR_GOOGLE_APPS_SCRIPT")) {
-        showToast("Please paste your Google Apps Script URL in SCRIPT_URL variable!", false);
-        return;
-      }
-
-      const payload = {
-        action: "addCustomer",
-        nameEn: document.getElementById('newCustEn').value.trim(),
-        nameNp: document.getElementById('newCustNp').value.trim(),
-        code: document.getElementById('newCustCode').value.trim(),
-        area: document.getElementById('newCustArea').value,
-        phone: document.getElementById('newCustPhone').value.trim(),
-        address: document.getElementById('newCustAddr').value.trim(),
-        rate: document.getElementById('newCustRate').value,
-        notes: document.getElementById('newCustNotes').value.trim()
+      const entry = {
+        driverName: appData.currentDriver,
+        customerNameEn: document.getElementById('delCustomer').value,
+        area: document.getElementById('delArea').value,
+        jarsDelivered: document.getElementById('delDelivered').value,
+        emptyReturned: document.getElementById('delReturned').value,
+        unitPrice: document.getElementById('delRate').value,
+        cashPaid: document.getElementById('delCashPaid').value,
+        paymentMethod: document.getElementById('delPayMethod').value
       };
 
-      const btn = document.getElementById('btnSubmitCust');
-      const spinner = document.getElementById('custSpinner');
-
-      btn.disabled = true;
-      spinner.style.display = 'inline-block';
-
-      try {
-        const res = await fetch(SCRIPT_URL, {
-          method: "POST",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
-          body: JSON.stringify(payload)
-        });
-
-        const data = await res.json();
-        if (data.status === "success") {
-          showToast(`Customer "${payload.nameEn}" added to Customer Directory!`, true);
-          CUSTOMER_DIR.push({
-            code: data.customerCode || payload.code,
-            en: payload.nameEn,
-            np: payload.nameNp,
-            area: payload.area,
-            rate: parseFloat(payload.rate) || 35.00
-          });
-          populateCustomerOptions();
-          document.getElementById('customerForm').reset();
-          switchTab('delivery');
-        } else {
-          throw new Error(data.message || "Failed to register.");
-        }
-      } catch (err) {
-        console.error(err);
-        showToast("Customer registered.", true);
-      } finally {
-        btn.disabled = false;
-        spinner.style.display = 'none';
-      }
+      google.script.run
+        .withSuccessHandler(function(updatedStats) {
+          btn.disabled = false;
+          btn.innerHTML = '<span>💾 Record Delivery</span>';
+          renderDriverStats(updatedStats);
+          alert('Delivery recorded successfully!');
+          document.getElementById('delDelivered').value = 1;
+          document.getElementById('delReturned').value = 1;
+          recalcPayment();
+        })
+        .withFailureHandler(function(err) {
+          btn.disabled = false;
+          btn.innerHTML = '<span>💾 Record Delivery</span>';
+          alert('Failed to save delivery: ' + err.message);
+        })
+        .recordDelivery(entry);
     }
 
-    function showToast(msg, isSuccess = true) {
-      const el = document.getElementById('statusAlert');
-      el.className = `alert ${isSuccess ? 'success' : 'error'}`;
-      el.innerHTML = `${isSuccess ? '✅' : '⚠️'} ${msg}`;
-      el.style.display = 'flex';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    function submitNewCustomer() {
+      const cust = {
+        nameEn: document.getElementById('custNameEn').value,
+        nameNp: document.getElementById('custNameNp').value,
+        area: document.getElementById('custAreaSelect').value,
+        rate: document.getElementById('custRate').value
+      };
 
-      setTimeout(() => {
-        el.style.display = 'none';
-      }, 7000);
+      google.script.run
+        .withSuccessHandler(function(res) {
+          alert('Customer registered! Assigned code: ' + res.code);
+          document.getElementById('newCustForm').reset();
+          // Reload initial dropdowns
+          google.script.run.withSuccessHandler(populateInitialData).getInitialData();
+        })
+        .withFailureHandler(err => alert("Error: " + err.message))
+        .registerCustomer(cust);
     }
-
-    // Auto-login if session exists
-    window.addEventListener('DOMContentLoaded', () => {
-      const savedDriver = localStorage.getItem("sankha_active_driver");
-      if (savedDriver && DRIVER_PIN_VAULT[savedDriver]) {
-        enterDriverSession(savedDriver);
-      }
-    });
   </script>
 </body>
 </html>
